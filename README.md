@@ -1,0 +1,43 @@
+restaurante = "Burger King"
+
+menu = [
+    ["Hamburguesa Gourmet", "Comida", 18000],
+    ["Papas Fritas", "Acompañamiento", 6000],
+    ["Pizza Familiar", "Comida", 35000],
+    ["Jugo Natural", "Bebidas", 7000],
+    ["Cerveza Artesanal", "Bebidas", 12000],
+    ["Tres Leches", "Postres", 9500]
+]
+
+def calcular_precio_final(producto, categoria_objetivo, umbral_precio):
+    """
+    Calcula el precio final aplicando un 15% de descuento si el producto
+    pertenece a la categoría objetivo y supera el umbral de precio.
+    """
+    nombre = producto[0]
+    categoria = producto[1]
+    precio_base = producto[2]
+    
+   
+    if categoria == categoria_objetivo and precio_base > umbral_precio:
+        precio_final = precio_base * 0.85
+    else:
+        precio_final = precio_base
+        
+    return precio_final
+
+
+CATEGORIA_PROMO = "Comida"
+UMBRAL_PROMO = 15000
+
+
+print(f"--- APLICANDO PROMOCIÓN (Categoría '{CATEGORIA_PROMO}' y Precio > ${UMBRAL_PROMO}) ---")
+print(f"{'Producto':<25} {'Categoría':<15} {'Precio Base':<12} {'Precio Final':<12}")
+print("-" * 70)
+
+
+for producto in menu:
+    precio_base = producto[2]
+    precio_final = calcular_precio_final(producto, CATEGORIA_PROMO, UMBRAL_PROMO)
+    # Alineación de texto (<) y números con formato de miles
+    print(f"{producto[0]:<25} {producto[1]:<15} ${precio_base:<11,.0f} ${precio_final:<11,.0f}")
