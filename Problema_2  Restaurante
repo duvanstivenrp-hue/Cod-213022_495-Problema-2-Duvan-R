@@ -34,7 +34,7 @@ print(f"--- APLICANDO PROMOCIÓN (Categoría: '{CATEGORIA_PROMO}' y Precio > ${U
 print(f"{'Producto':<25} | {'Categoría':<15} | {'Precio Base':<12} | {'Precio Final':<12}")
 print("-" * 75)
 
-# Bucle corregido con la variable exacta: UMBRAL_PROMO
+
 for producto in menu:
     precio_base = producto[2]
     precio_final = calcular_precio_final(producto, CATEGORIA_PROMO, UMBRAL_PROMO)
